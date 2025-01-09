@@ -1,0 +1,472 @@
+<!-- API for flags: https://flagsapi.com/#countries -->
+<!-- localhost:3000 -->
+<!DOCTYPE html>
+<html>
+  <head> </head>
+
+  <body style="height: 100vh; width: 100vw; overflow: hidden;">
+    <link rel="stylesheet" type="text/css" href="leStyles.css" />
+
+
+    <div style="display: flex; height: 1000px">
+      <div style="border: 1px solid black; width: 20%; height: 100%;">Menu
+
+        <div style="border: 1px solid black">
+          Included Flags: 
+
+            <div>
+              <form action="" id="form_setting_checkboxes">
+                <input type="checkbox" value="1" id="setting_checkbox_all"> All
+                <input type="checkbox" value="1" id="setting_checkbox_africa" > Africa
+                <input type="checkbox" value="1" id="setting_checkbox_europe" disabled="true" title="TODO"> Europe
+              </form>
+            </div>
+        </div>
+
+      </div>
+      <div style="border: 1px solid black; width: 80%; height: 100%;" > Game Area
+        <div class="gameareastart" id="gamearea_start">
+          <div>
+            <button style="display: block;" id="btn_Start">Start</button>
+          </div>
+        </div>
+        <div style="display: none;" id="gamearea_game">
+                      <p>Total Complete: <div id="quiz_total_complete"></div></p>
+                      <p>Total Correct: <div id="quiz_total_correct"></div></p>
+
+            <div class="flagWrapper">
+              <img
+                style="
+                  width: 300px;
+                  height: 240px;
+                  display: block;
+                  justify-content: center;
+                  margin: auto;
+                  border: 1px solid black;
+                  "
+                id="flag"
+                alt="Image here"
+              />
+            </div> 
+            <!-- Reason we can't use margin for centering: 
+                  - https://stackoverflow.com/a/12417336 
+            -->
+        
+            <div id="2kwl4u"></div>
+        
+            <div
+              class="flex space-between margin-x-auto"
+              style="width: 500px; margin-top: 10%"
+            >
+              <button type="button" id="option_1">Sample text</button>
+              <button type="button" id="option_2">Sample text</button>
+              <button type="button" id="option_3">Sample text</button>
+              <button type="button" id="option_4">Sample text</button>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <script type="module">
+      const CONST_HEADER_ALL_FLAGS = "All-Flags";
+      const CONST_HEADER_AFRICAN_FLAGS = "Africa-Flags";
+
+      const displayFlag = document.getElementById("flag");
+
+      const global_quiz_total_complete = document.getElementById("quiz_total_complete");
+      global_quiz_total_complete.textContent = 0;
+
+      const global_quiz_total_correct = document.getElementById("quiz_total_correct");
+      global_quiz_total_correct.textContent = 0;
+
+      let currentOptions = [];
+
+      const quiz_option1 = document.getElementById("option_1");
+      const quiz_option2 = document.getElementById("option_2");
+      const quiz_option3 = document.getElementById("option_3");
+      const quiz_option4 = document.getElementById("option_4");
+
+    
+      const form_setting_checkboxes = document.getElementById("form_setting_checkboxes");
+
+      const setting_checkbox_all = document.getElementById("setting_checkbox_all");
+      const setting_checkbox_africa = document.getElementById("setting_checkbox_africa");
+      const setting_checkbox_europe = document.getElementById("setting_checkbox_europe");
+
+      const gamearea_start = document.getElementById("gamearea_start");
+      const gamearea_game = document.getElementById("gamearea_game");
+
+
+      const gamearea_startButton = document.getElementById("btn_Start");
+
+      let global_allFlags = [];
+      let global_totalFlags = -1;
+      let global_currentRandomFlag;
+
+      let global_gamemode_quiz_alreadygottenflags = [];
+
+      // Shouldn't be doing what comes next which is inline function handler binding:
+      // According to: https://stackoverflow.com/questions/6348494/addeventlistener-vs-onclick
+
+      // But alas I will for fun.
+
+      toggleDisableForStartButton();
+
+      displayFlag.onload = function () {
+        quiz_option1.disabled = false;
+        quiz_option2.disabled = false;
+        quiz_option3.disabled = false;
+        quiz_option4.disabled = false;
+      };
+
+      quiz_option1.addEventListener("click", function (option1) {
+        if (isChosenOptionCorrect(option1.srcElement)) {
+          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
+            {
+
+            } else {
+              SetUpForNextGame();
+            }
+        }
+      });
+
+      quiz_option2.addEventListener("click", function (option2) {
+        if (isChosenOptionCorrect(option2.srcElement)) {
+          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
+            {
+
+            } else {
+              SetUpForNextGame();
+            }
+        }
+      });
+
+      quiz_option3.addEventListener("click", function (option3) {
+        if (isChosenOptionCorrect(option3.srcElement)) {
+          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
+            {
+
+            } else {
+              SetUpForNextGame();
+            }
+        }
+      });
+
+      quiz_option4.addEventListener("click", function (option4) {
+        if (isChosenOptionCorrect(option4.srcElement)) {
+          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
+            {
+
+            } else {
+              SetUpForNextGame();
+            }
+        }
+      });
+
+      setting_checkbox_all.addEventListener("click", async function() {
+        // DO this when adding europe 
+      });
+
+      setting_checkbox_africa.addEventListener("change", async function() {
+        toggleDisableForStartButton(); // TODO: can make change listener just for this in future 
+
+        let flags = JSON.parse(await RetrieveDataFromHeader(CONST_HEADER_AFRICAN_FLAGS));
+
+          if (setting_checkbox_africa.checked)
+          {
+            global_allFlags.push(flags);
+            global_allFlags = global_allFlags.flat();
+          } else {
+            flags.forEach((el) => {
+              let indexOfElement = global_allFlags.indexOf(el);
+              const deleteCount = 1;
+              global_allFlags.splice(indexOfElement, deleteCount); 
+            });
+          }
+      })
+
+      gamearea_startButton.addEventListener("click", async function() {
+        // check options for all flags to be included 
+        // hide this button
+
+          gamearea_start.classList = [];
+          gamearea_start.classList.add("displaynone");
+          gamearea_game.classList.remove("displaynone");
+          gamearea_game.style = [];
+
+          if (global_allFlags.length == 0) {
+            global_allFlags = await RetrieveAllRelevantFlags();
+          }
+
+          global_allFlags = global_allFlags.filter((flag) => flag.name != "");
+
+
+          global_totalFlags = global_allFlags.length - 1; // indexed
+
+          global_currentRandomFlag = global_allFlags[GetRandomNumberInRange(0, global_totalFlags)];
+
+          SetUpForNextGame();
+      });
+
+      
+
+      // TODO:
+
+      // + get checkbox options from localstorage...too early for this 
+
+
+      function ValidateScoreAndSetupNextGame(quiz_button) {
+        if (isChosenOptionCorrect(quiz_button.srcElement)) {
+          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+        }
+
+        if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
+        {
+          global_gamemode_quiz_alreadygottenflags = [];
+        } else {
+          SetUpForNextGame();
+        }
+      }
+
+      function toggleDisableForStartButton() {
+        let isSomethingChecked = false; 
+        form_setting_checkboxes.childNodes.forEach(
+          (checkboxChildren) => {
+            if (checkboxChildren.checked) isSomethingChecked = true; 
+          }
+        );
+
+        gamearea_startButton.disabled = isSomethingChecked ? false : true;  
+      }
+
+      async function RetrieveAllRelevantFlags() {
+        // JSON.parse(await RetrieveDataFromHeader(CONST_HEADER_AFRICAN_FLAGS))
+
+        // attributes for checkbox: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+        let flags = [];
+
+        if (setting_checkbox_africa.checked || setting_checkbox_all.checked)
+        {
+          flags.push(JSON.parse(await RetrieveDataFromHeader(CONST_HEADER_AFRICAN_FLAGS)))
+        }
+        
+
+        flags = flags.flat();
+
+        return flags;
+
+        // needs to add the other flag types below this so that all will be complete (to get all flags in a different way)
+        // but that will require a lot of menial effort to seperate out the flags 
+      }
+
+      async function SetUpForNextGame() {
+        currentOptions = [];
+        displayFlag.alt = "";
+
+        quiz_option1.disabled = true;
+        quiz_option2.disabled = true;
+        quiz_option3.disabled = true;
+        quiz_option4.disabled = true;
+
+        global_currentRandomFlag = global_allFlags[getFlagIndex()];
+
+        global_gamemode_quiz_alreadygottenflags.push(global_currentRandomFlag.name); 
+
+        let buttonWithCorrectAnswer = GetRandomNumberInRange(1, 4);
+
+        switch (buttonWithCorrectAnswer) {
+          case 1:
+            quiz_option1.textContent = global_currentRandomFlag.name;
+            break;
+          case 2:
+            quiz_option2.textContent = global_currentRandomFlag.name;
+            break;
+          case 3:
+            quiz_option3.textContent = global_currentRandomFlag.name;
+            break;
+          case 4:
+            quiz_option4.textContent = global_currentRandomFlag.name;
+            break;
+        }
+
+        if (!(await IsImageWorking(global_currentRandomFlag.img))) {
+          console.log("Image not working");
+          displayFlag.alt =
+            "Sorry, I picked a bad API for the flags, click the following button: " +
+            buttonWithCorrectAnswer;
+          // Fiddle where i learned about image working:  
+          // https://jsfiddle.net/jfriend00/vhtzghkd/
+        }
+        displayFlag.src = global_currentRandomFlag.img;
+
+        currentOptions.push(global_currentRandomFlag.name);
+
+        PopulateAllButtonsText(currentOptions, global_currentRandomFlag);
+      }
+
+      function getFlagIndex() {
+        let index = -1;
+        let flag = null;
+        let dontExit = true; 
+
+        while (dontExit) {
+          index = GetRandomNumberInRange(0, global_totalFlags);
+          flag = global_allFlags[index];
+
+          if (!global_gamemode_quiz_alreadygottenflags.includes(flag.name)) {
+            dontExit = false; 
+          }
+        } 
+
+        return index; 
+      }
+
+      async function IsImageWorking(imgUrl) {
+        let promise = new Promise(function (resolve, reject) {
+          // not sure if im writing a good promise
+          // only resolves, never rejects
+          let timer,
+            image = new Image();
+
+          image.onerror = image.onabort = function () {
+            // TODO: google this ^ at some point
+            resolve("error");
+          };
+
+          image.onload = function () {
+            resolve("success");
+          };
+
+          timer = setTimeout(function () {
+            image.src = "https://!!!!/noexist.jpg"; // still have to research why this is needed
+            resolve("timeout");
+          }, 5000);
+
+          image.src = imgUrl;
+          // fiddle this code is based on: https://jsfiddle.net/jfriend00/vhtzghkd/
+        });
+
+        let result = await promise;
+
+        return result == "success";
+      }
+
+      function PopulateAllButtonsText(currentOptions, global_currentRandomFlag) {
+        quiz_option1.textContent =
+          quiz_option1.textContent != global_currentRandomFlag.name
+            ? GetFlagNotYetUsed(currentOptions)
+            : global_currentRandomFlag.name;
+
+        currentOptions.push(quiz_option1.textContent);
+
+        quiz_option2.textContent =
+          quiz_option2.textContent != global_currentRandomFlag.name
+            ? GetFlagNotYetUsed(currentOptions)
+            : global_currentRandomFlag.name;
+
+        currentOptions.push(quiz_option2.textContent);
+
+        quiz_option3.textContent =
+          quiz_option3.textContent != global_currentRandomFlag.name
+            ? GetFlagNotYetUsed(currentOptions)
+            : global_currentRandomFlag.name;
+
+        currentOptions.push(quiz_option3.textContent);
+
+        quiz_option4.textContent =
+          quiz_option4.textContent != global_currentRandomFlag.name
+            ? GetFlagNotYetUsed(currentOptions)
+            : global_currentRandomFlag.name;
+
+        currentOptions.push(quiz_option4.textContent);
+      }
+
+      function GetRandomFlag(allFlags) {
+        return allFlags[GetRandomNumberInRange(0, global_totalFlags)];
+
+        //   allFlags.then((textFromHeader) => {
+        //   const flagsJSON = JSON.parse(textFromHeader);
+        //   console.log({flagsJSON});
+        //   const randomNumber = GetRandomNumberInRange(0, global_totalFlags);
+
+        //   return flagsJSON[randomNumber];
+        //   // currentFlag = flagsJSON[randomNumber];
+        //   // flag.src =  flagsJSON[randomNumber].img ?? 'No Flag Available';
+        // });
+      }
+
+      function GetFlagNotYetUsed(currentOptions) {
+        let foundFlag = null;
+
+        while (foundFlag == null) {
+          let randomNumber = GetRandomNumberInRange(0, global_totalFlags);
+          let randomFlag = global_allFlags[randomNumber];
+
+          if (randomFlag == null) console.log('No flag found, random number used: ',randomNumber);
+
+          if (!currentOptions.includes(randomFlag.name)) {
+            foundFlag = randomFlag;
+          }
+        }
+
+        return foundFlag.name;
+      }
+
+      function GetRandomNumberInRange(min, max) {
+        const randFloat = Math.random();
+
+        const range = max - min + 1;
+        // get random number in range: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+
+        return Math.floor(randFloat * range + min);
+      }
+
+      function isChosenOptionCorrect(button) {
+        const buttonTextValue = button.textContent;
+
+        return buttonTextValue == global_currentRandomFlag.name;
+      }
+
+      async function RetrieveDataFromHeader(header) {
+        const serverFetchResponse = await fetch("/");
+        if (!serverFetchResponse.ok) console.log("Fetch didnt work :(");
+
+        const headers = await serverFetchResponse.headers;
+
+        return headers.get(header);
+      }
+
+      // might not be used ever, but explains some concepts.
+      function AddDivTextBeforeGivenId(givenId, text, addClass = "") {
+        const newDivEl = document.createElement("div");
+        const newDivElContent = document.createTextNode(text);
+
+        newDivEl.className = addClass;
+
+        newDivEl.append(newDivElContent);
+
+        const centerPoint = document.getElementById(givenId);
+        document.body.insertBefore(newDivEl, centerPoint);
+      }
+
+      function SetNamesForAll4Options(
+        text1 = "",
+        text2 = "",
+        text3 = "",
+        text4 = ""
+      ) {
+        quiz_option1.textContent = text1;
+        quiz_option2.textContent = text2;
+        quiz_option3.textContent = text3;
+        quiz_option4.textContent = text4;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+[
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/dz.svg",
+		"name": "Algeria"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ao.svg",
+		"name": "Angola"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bj.svg",
+		"name": "Benin"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bw.svg",
+		"name": "Botswana"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bf.svg",
+		"name": "Burkina Faso"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bi.svg",
+		"name": "Burundi"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cm.svg",
+		"name": "Cameroon"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cv.svg",
+		"name": "Cape Verde"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cf.svg",
+		"name": "Central African Republic"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/td.svg",
+		"name": "Chad"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/km.svg",
+		"name": "Comoros"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cd.svg",
+		"name": "Democratic Republic of the Congo"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cg.svg",
+		"name": "Republic of the Congo"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/dj.svg",
+		"name": "Djibouti"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/eg.svg",
+		"name": "Egypt"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gq.svg",
+		"name": "Equatorial Guinea"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/er.svg",
+		"name": "Eritrea"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sz.svg",
+		"name": "Eswatini"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/et.svg",
+		"name": "Ethiopia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ga.svg",
+		"name": "Gabon"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gm.svg",
+		"name": "The Gambia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gh.svg",
+		"name": "Ghana"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gn.svg",
+		"name": "Guinea"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gw.svg",
+		"name": "Guinea-Bissau"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ci.svg",
+		"name": "Ivory Coast"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ke.svg",
+		"name": "Kenya"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ls.svg",
+		"name": "Lesotho"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/lr.svg",
+		"name": "Liberia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ly.svg",
+		"name": "Libya"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mg.svg",
+		"name": "Madagascar"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mw.svg",
+		"name": "Malawi"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ml.svg",
+		"name": "Mali"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mr.svg",
+		"name": "Mauritania"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mu.svg",
+		"name": "Mauritius"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ma.svg",
+		"name": "Morocco"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mz.svg",
+		"name": "Mozambique"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/na.svg",
+		"name": "Namibia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ne.svg",
+		"name": "Niger"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ng.svg",
+		"name": "Nigeria"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/rw.svg",
+		"name": "Rwanda"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/st.svg",
+		"name": "Sao Tome and Principe"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sn.svg",
+		"name": "Senegal"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sc.svg",
+		"name": "Seychelles"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sl.svg",
+		"name": "Sierra Leone"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/so.svg",
+		"name": "Somalia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/za.svg",
+		"name": "South Africa"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ss.svg",
+		"name": "South Sudan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sd.svg",
+		"name": "Sudan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tz.svg",
+		"name": "Tanzania"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tg.svg",
+		"name": "Togo"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tn.svg",
+		"name": "Tunisia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ug.svg",
+		"name": "Uganda"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/zm.svg",
+		"name": "Zambia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/zw.svg",
+		"name": "Zimbabwe"
+	}
+]
