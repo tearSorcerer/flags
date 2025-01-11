@@ -31,8 +31,20 @@
           </div>
         </div>
         <div style="display: none;" id="gamearea_game">
-                      <p>Total Complete: <div id="quiz_total_complete"></div></p>
-                      <p>Total Correct: <div id="quiz_total_correct"></div></p>
+                      <div >
+                        <div style="display: inline-block;">Total Complete: </div>
+                        <div style="display: inline-block;" id="quiz_total_complete"></div>
+                      </div>
+
+                      <div>
+                        <div style="display: inline-block;">Total Correct: </div>
+                        <div style="display: inline-block;" id="quiz_total_correct"></div>
+                      </div>
+
+                      <div>
+                        <div style="display: inline-block;">Total Incorrect: </div>
+                        <div style="display: inline-block;" id="quiz_total_incorrect"></div>
+                      </div>
 
             <div class="flagWrapper">
               <img
@@ -57,6 +69,7 @@
             <div
               class="flex space-between margin-x-auto"
               style="width: 500px; margin-top: 10%"
+              id="quiz_all_buttons"
             >
               <button type="button" id="option_1">Sample text</button>
               <button type="button" id="option_2">Sample text</button>
@@ -82,7 +95,10 @@
       const global_quiz_total_correct = document.getElementById("quiz_total_correct");
       global_quiz_total_correct.textContent = 0;
 
-      let currentOptions = [];
+      const global_quiz_total_incorrect = document.getElementById("quiz_total_incorrect");
+      global_quiz_total_incorrect.textContent = 0;
+
+      const quiz_all_buttons = document.getElementById("quiz_all_buttons");
 
       const quiz_option1 = document.getElementById("option_1");
       const quiz_option2 = document.getElementById("option_2");
@@ -123,51 +139,19 @@
       };
 
       quiz_option1.addEventListener("click", function (option1) {
-        if (isChosenOptionCorrect(option1.srcElement)) {
-          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
-          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
-            {
-
-            } else {
-              SetUpForNextGame();
-            }
-        }
+        ValidateScoreAndSetupNextGame(option1);
       });
 
       quiz_option2.addEventListener("click", function (option2) {
-        if (isChosenOptionCorrect(option2.srcElement)) {
-          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
-          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
-            {
-
-            } else {
-              SetUpForNextGame();
-            }
-        }
+        ValidateScoreAndSetupNextGame(option2);
       });
 
       quiz_option3.addEventListener("click", function (option3) {
-        if (isChosenOptionCorrect(option3.srcElement)) {
-          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
-          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
-            {
-
-            } else {
-              SetUpForNextGame();
-            }
-        }
+        ValidateScoreAndSetupNextGame(option3);
       });
 
       quiz_option4.addEventListener("click", function (option4) {
-        if (isChosenOptionCorrect(option4.srcElement)) {
-          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
-          if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
-            {
-
-            } else {
-              SetUpForNextGame();
-            }
-        }
+        ValidateScoreAndSetupNextGame(option4)
       });
 
       setting_checkbox_all.addEventListener("click", async function() {
@@ -203,10 +187,10 @@
 
           if (global_allFlags.length == 0) {
             global_allFlags = await RetrieveAllRelevantFlags();
+
+            global_allFlags = global_allFlags.filter((flag) => flag.name != "");
+            global_allFlags = global_allFlags.filter((flag) => flag.name.length <= 5);
           }
-
-          global_allFlags = global_allFlags.filter((flag) => flag.name != "");
-
 
           global_totalFlags = global_allFlags.length - 1; // indexed
 
@@ -218,21 +202,29 @@
       
 
       // TODO:
+      // + punish the player for incorrect
+      // start thinking about logging stats 
 
       // + get checkbox options from localstorage...too early for this 
 
 
       function ValidateScoreAndSetupNextGame(quiz_button) {
+        global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+
+
         if (isChosenOptionCorrect(quiz_button.srcElement)) {
-          global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
+          global_quiz_total_correct.textContent = Number(global_quiz_total_correct.textContent) + 1;
+        } else {
+          global_quiz_total_incorrect.textContent = Number(global_quiz_total_incorrect.textContent) + 1;
         }
 
-        if (Number(global_quiz_total_complete.textContent) === global_allFlags.length)
+        if ((global_gamemode_quiz_alreadygottenflags.length) === global_allFlags.length)
         {
+          // player wins at this point. 
           global_gamemode_quiz_alreadygottenflags = [];
-        } else {
-          SetUpForNextGame();
-        }
+        } 
+          
+        SetUpForNextGame();
       }
 
       function toggleDisableForStartButton() {
@@ -267,15 +259,16 @@
       }
 
       async function SetUpForNextGame() {
-        currentOptions = [];
+        global_quiz_current_options = [];
         displayFlag.alt = "";
+
 
         quiz_option1.disabled = true;
         quiz_option2.disabled = true;
         quiz_option3.disabled = true;
         quiz_option4.disabled = true;
 
-        global_currentRandomFlag = global_allFlags[getFlagIndex()];
+        global_currentRandomFlag = getFlagThatHasntBeenUsed();
 
         global_gamemode_quiz_alreadygottenflags.push(global_currentRandomFlag.name); 
 
@@ -301,22 +294,22 @@
           displayFlag.alt =
             "Sorry, I picked a bad API for the flags, click the following button: " +
             buttonWithCorrectAnswer;
-          // Fiddle where i learned about image working:  
+          // Fiddle where i learned about checking if image is working:  
           // https://jsfiddle.net/jfriend00/vhtzghkd/
         }
         displayFlag.src = global_currentRandomFlag.img;
 
-        currentOptions.push(global_currentRandomFlag.name);
-
-        PopulateAllButtonsText(currentOptions, global_currentRandomFlag);
+        PopulateAllButtonsText(buttonWithCorrectAnswer);
       }
 
-      function getFlagIndex() {
+      function getFlagThatHasntBeenUsed() {
         let index = -1;
         let flag = null;
-        let dontExit = true; 
+        let dontExit = true;
+      
 
         while (dontExit) {
+
           index = GetRandomNumberInRange(0, global_totalFlags);
           flag = global_allFlags[index];
 
@@ -325,7 +318,64 @@
           }
         } 
 
-        return index; 
+        return global_allFlags[index]; 
+      }
+
+      function PopulateAllButtonsText(buttonWithCorrectAnswer) {
+        let currentOptions = [];
+
+        currentOptions.push(global_currentRandomFlag.name)
+
+        let relevantButtons = 
+        Array.from(quiz_all_buttons.children).filter((el, index, arr) => index != (buttonWithCorrectAnswer-1));
+
+        relevantButtons.forEach(
+          (btn) => {
+            btn.textContent = GetFlagNotYetUsed(currentOptions);
+            currentOptions.push(btn.textContent);
+          }
+        );
+
+        if (currentOptions.length != [...new Set(currentOptions)].length) {
+          // https://stackoverflow.com/a/14438954
+          console.log('Something wrong has happended')
+        }
+      }
+
+      function GetRandomFlag(allFlags) {
+        return allFlags[GetRandomNumberInRange(0, global_totalFlags)];
+      }
+
+      function GetFlagNotYetUsed(currentOptions) {
+        let foundFlag = null;
+
+        while (foundFlag == null) {
+          let randomNumber = GetRandomNumberInRange(0, global_totalFlags);
+          let randomFlag = global_allFlags[randomNumber];
+
+          if (randomFlag == null) console.log('No flag found, random number used: ', randomNumber);
+
+          if (!currentOptions.includes(randomFlag.name)) {
+            foundFlag = randomFlag;
+          }
+        }
+
+        return foundFlag.name;
+      }
+
+      function GetRandomNumberInRange(min, max) {
+        const randFloat = Math.random();
+
+        const range = max - min + 1;
+        // get random number in range: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+
+        return Math.floor(randFloat * range + min);
+      }
+
+      function isChosenOptionCorrect(button) {
+        const buttonTextValue = button.textContent;
+
+        return buttonTextValue == global_currentRandomFlag.name;
       }
 
       async function IsImageWorking(imgUrl) {
@@ -358,82 +408,6 @@
         return result == "success";
       }
 
-      function PopulateAllButtonsText(currentOptions, global_currentRandomFlag) {
-        quiz_option1.textContent =
-          quiz_option1.textContent != global_currentRandomFlag.name
-            ? GetFlagNotYetUsed(currentOptions)
-            : global_currentRandomFlag.name;
-
-        currentOptions.push(quiz_option1.textContent);
-
-        quiz_option2.textContent =
-          quiz_option2.textContent != global_currentRandomFlag.name
-            ? GetFlagNotYetUsed(currentOptions)
-            : global_currentRandomFlag.name;
-
-        currentOptions.push(quiz_option2.textContent);
-
-        quiz_option3.textContent =
-          quiz_option3.textContent != global_currentRandomFlag.name
-            ? GetFlagNotYetUsed(currentOptions)
-            : global_currentRandomFlag.name;
-
-        currentOptions.push(quiz_option3.textContent);
-
-        quiz_option4.textContent =
-          quiz_option4.textContent != global_currentRandomFlag.name
-            ? GetFlagNotYetUsed(currentOptions)
-            : global_currentRandomFlag.name;
-
-        currentOptions.push(quiz_option4.textContent);
-      }
-
-      function GetRandomFlag(allFlags) {
-        return allFlags[GetRandomNumberInRange(0, global_totalFlags)];
-
-        //   allFlags.then((textFromHeader) => {
-        //   const flagsJSON = JSON.parse(textFromHeader);
-        //   console.log({flagsJSON});
-        //   const randomNumber = GetRandomNumberInRange(0, global_totalFlags);
-
-        //   return flagsJSON[randomNumber];
-        //   // currentFlag = flagsJSON[randomNumber];
-        //   // flag.src =  flagsJSON[randomNumber].img ?? 'No Flag Available';
-        // });
-      }
-
-      function GetFlagNotYetUsed(currentOptions) {
-        let foundFlag = null;
-
-        while (foundFlag == null) {
-          let randomNumber = GetRandomNumberInRange(0, global_totalFlags);
-          let randomFlag = global_allFlags[randomNumber];
-
-          if (randomFlag == null) console.log('No flag found, random number used: ',randomNumber);
-
-          if (!currentOptions.includes(randomFlag.name)) {
-            foundFlag = randomFlag;
-          }
-        }
-
-        return foundFlag.name;
-      }
-
-      function GetRandomNumberInRange(min, max) {
-        const randFloat = Math.random();
-
-        const range = max - min + 1;
-        // get random number in range: https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
-
-        return Math.floor(randFloat * range + min);
-      }
-
-      function isChosenOptionCorrect(button) {
-        const buttonTextValue = button.textContent;
-
-        return buttonTextValue == global_currentRandomFlag.name;
-      }
-
       async function RetrieveDataFromHeader(header) {
         const serverFetchResponse = await fetch("/");
         if (!serverFetchResponse.ok) console.log("Fetch didnt work :(");
@@ -454,18 +428,6 @@
 
         const centerPoint = document.getElementById(givenId);
         document.body.insertBefore(newDivEl, centerPoint);
-      }
-
-      function SetNamesForAll4Options(
-        text1 = "",
-        text2 = "",
-        text3 = "",
-        text4 = ""
-      ) {
-        quiz_option1.textContent = text1;
-        quiz_option2.textContent = text2;
-        quiz_option3.textContent = text3;
-        quiz_option4.textContent = text4;
       }
     </script>
   </body>
