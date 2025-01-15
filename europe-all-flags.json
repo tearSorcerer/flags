@@ -1,0 +1,198 @@
+[
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/al.svg",
+		"name": "Albania"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ad.svg",
+		"name": "Andorra"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/am.svg",
+		"name": "Armenia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/at.svg",
+		"name": "Austria"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/az.svg",
+		"name": "Azerbaijan"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/by.svg",
+		"name": "Belarus"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/be.svg",
+		"name": "Belgium"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ba.svg",
+		"name": "Bosnia and Herzegovina"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bg.svg",
+		"name": "Bulgaria"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/hr.svg",
+		"name": "Croatia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/cy.svg",
+		"name": "Cyprus"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/dk.svg",
+		"name": "Denmark"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ee.svg",
+		"name": "Estonia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/fi.svg",
+		"name": "Finland"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/fr.svg",
+		"name": "France"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ge.svg",
+		"name": "Georgia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/de.svg",
+		"name": "Germany"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/gr.svg",
+		"name": "Greece"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/hu.svg",
+		"name": "Hungary"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/is.svg",
+		"name": "Iceland"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ie.svg",
+		"name": "Ireland"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/it.svg",
+		"name": "Italy"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/kz.svg",
+		"name": "Kazakhstan"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/lv.svg",
+		"name": "Latvia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/li.svg",
+		"name": "Liechtenstein"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/lt.svg",
+		"name": "Lithuania"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/lu.svg",
+		"name": "Luxembourg"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/mt.svg",
+		"name": "Malta"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/md.svg",
+		"name": "Moldova"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/mc.svg",
+		"name": "Monaco"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/me.svg",
+		"name": "Montenegro"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/nl.svg",
+		"name": "Netherlands"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/mk.svg",
+		"name": "North Macedonia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/no.svg",
+		"name": "Norway"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/pl.svg",
+		"name": "Poland"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/pt.svg",
+		"name": "Portugal"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ro.svg",
+		"name": "Romania"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ru.svg",
+		"name": "Russia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/sm.svg",
+		"name": "San Marino"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/rs.svg",
+		"name": "Serbia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/sk.svg",
+		"name": "Slovakia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/si.svg",
+		"name": "Slovenia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/es.svg",
+		"name": "Spain"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/se.svg",
+		"name": "Sweden"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ch.svg",
+		"name": "Switzerland"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/tr.svg",
+		"name": "Türkiye"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ua.svg",
+		"name": "Ukraine"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/gb.svg",
+		"name": "United Kingdom"
+	},
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Vatican_City_%282001%E2%80%932023%29.svg",
+        "name": "Vatican City"
+    }
+]

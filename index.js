@@ -4,6 +4,7 @@ var http = require("http");
 var fs = require("fs");
 var masterListOfFlags = JSON.stringify(require('./master-list-all-flags-2.json'));
 var africaFlags = JSON.stringify(require('./africa-all-flags.json'));
+var europeFlags = JSON.stringify(require('./europe-all-flags.json'));
 var port = 3000;
 var serverUrl = "127.0.0.1";
 var counter = 0;
@@ -17,6 +18,7 @@ var server = http.createServer(function (req, res) {
       res.setHeader("Content-Type", "text/html");
       res.setHeader("All-Flags", masterListOfFlags);
       res.setHeader("Africa-Flags", africaFlags);
+      res.setHeader("Europe-Flags", europeFlags)
       // refactor above to only have different headers, not one master
       // don't want dupes...unless it doesn't really matter. 
 

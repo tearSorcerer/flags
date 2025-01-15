@@ -1,0 +1,751 @@
+[
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/af.svg",
+		"name": "Afghanistan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ax.svg",
+		"name": "Aland Islands"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/as.svg",
+		"name": "American Samoa"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ai.svg",
+		"name": "Anguilla"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/aq.svg",
+		"name": "Antarctica"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ag.svg",
+		"name": "Antigua and Barbuda"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ar.svg",
+		"name": "Argentina"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/aw.svg",
+		"name": "Aruba"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/au.svg",
+		"name": "Australia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bs.svg",
+		"name": "Bahamas"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bh.svg",
+		"name": "Bahrain"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bd.svg",
+		"name": "Bangladesh"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bb.svg",
+		"name": "Barbados"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bz.svg",
+		"name": "Belize"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bm.svg",
+		"name": "Bermuda"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bt.svg",
+		"name": "Bhutan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bo.svg",
+		"name": "Bolivia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bq.svg",
+		"name": "Bonaire, Sint Eustatius and Saba"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bv.svg",
+		"name": "Bouvet Island"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/br.svg",
+		"name": "Brazil"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/io.svg",
+		"name": "British Indian Ocean Territory"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bn.svg",
+		"name": "Brunei Darussalam"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/kh.svg",
+		"name": "Cambodia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cm.svg",
+		"name": "Cameroon"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ca.svg",
+		"name": "Canada"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ky.svg",
+		"name": "Cayman Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cl.svg",
+		"name": "Chile"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cn.svg",
+		"name": "China"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cx.svg",
+		"name": "Christmas Island"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cc.svg",
+		"name": "Cocos (Keeling) Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/co.svg",
+		"name": "Colombia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ck.svg",
+		"name": "Cook Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cr.svg",
+		"name": "Costa Rica"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cu.svg",
+		"name": "Cuba"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cw.svg",
+		"name": "Curaçao"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cz.svg",
+		"name": "Czech Republic"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/dm.svg",
+		"name": "Dominica"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/do.svg",
+		"name": "Dominican Republic"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ec.svg",
+		"name": "Ecuador"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sv.svg",
+		"name": "El Salvador"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/fk.svg",
+		"name": "Falkland Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/fo.svg",
+		"name": "Faroe Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/fm.svg",
+		"name": "Federated States of Micronesia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/fj.svg",
+		"name": "Fiji"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gf.svg",
+		"name": "French Guiana"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pf.svg",
+		"name": "French Polynesia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tf.svg",
+		"name": "French Southern Territories"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gi.svg",
+		"name": "Gibraltar"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gl.svg",
+		"name": "Greenland"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gd.svg",
+		"name": "Grenada"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gp.svg",
+		"name": "Guadeloupe"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gu.svg",
+		"name": "Guam"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gt.svg",
+		"name": "Guatemala"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gg.svg",
+		"name": "Guernsey"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gy.svg",
+		"name": "Guyana"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ht.svg",
+		"name": "Haiti"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/hm.svg",
+		"name": "Heard Island and McDonald Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/va.svg",
+		"name": "Holy See"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/hn.svg",
+		"name": "Honduras"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/hk.svg",
+		"name": "Hong Kong"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/in.svg",
+		"name": "India"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/id.svg",
+		"name": "Indonesia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ir.svg",
+		"name": "Iran"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/iq.svg",
+		"name": "Iraq"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/im.svg",
+		"name": "Isle of Man"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/il.svg",
+		"name": "Israel"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/jm.svg",
+		"name": "Jamaica"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/jp.svg",
+		"name": "Japan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/je.svg",
+		"name": "Jersey"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/jo.svg",
+		"name": "Jordan"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ki.svg",
+		"name": "Kiribati"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/kw.svg",
+		"name": "Kuwait"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/kg.svg",
+		"name": "Kyrgyzstan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/la.svg",
+		"name": "Laos"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/lb.svg",
+		"name": "Lebanon"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/lr.svg",
+		"name": "Liberia"
+	},
+
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mo.svg",
+		"name": "Macau"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mg.svg",
+		"name": "Madagascar"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/my.svg",
+		"name": "Malaysia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mv.svg",
+		"name": "Maldives"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mh.svg",
+		"name": "Marshall Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mq.svg",
+		"name": "Martinique"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/yt.svg",
+		"name": "Mayotte"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mx.svg",
+		"name": "Mexico"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mn.svg",
+		"name": "Mongolia"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ms.svg",
+		"name": "Montserrat"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mm.svg",
+		"name": "Myanmar"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/nr.svg",
+		"name": "Nauru"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/np.svg",
+		"name": "Nepal"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/nc.svg",
+		"name": "New Caledonia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/nz.svg",
+		"name": "New Zealand"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ni.svg",
+		"name": "Nicaragua"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ne.svg",
+		"name": "Niger"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ng.svg",
+		"name": "Nigeria"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/nu.svg",
+		"name": "Niue"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/nf.svg",
+		"name": "Norfolk Island"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/kp.svg",
+		"name": "North Korea"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mp.svg",
+		"name": "Northern Mariana Islands"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/om.svg",
+		"name": "Oman"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pk.svg",
+		"name": "Pakistan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pw.svg",
+		"name": "Palau"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pa.svg",
+		"name": "Panama"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pg.svg",
+		"name": "Papua New Guinea"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/py.svg",
+		"name": "Paraguay"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pe.svg",
+		"name": "Peru"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ph.svg",
+		"name": "Philippines"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pn.svg",
+		"name": "Pitcairn"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pr.svg",
+		"name": "Puerto Rico"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/qa.svg",
+		"name": "Qatar"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/rw.svg",
+		"name": "Rwanda"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/re.svg",
+		"name": "Réunion"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/bl.svg",
+		"name": "Saint Barthélemy"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sh.svg",
+		"name": "Saint Helena, Ascension and Tristan da Cunha"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/kn.svg",
+		"name": "Saint Kitts and Nevis"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/lc.svg",
+		"name": "Saint Lucia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/mf.svg",
+		"name": "Saint Martin"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pm.svg",
+		"name": "Saint Pierre and Miquelon"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/vc.svg",
+		"name": "Saint Vincent and the Grenadines"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ws.svg",
+		"name": "Samoa"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sa.svg",
+		"name": "Saudi Arabia"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sg.svg",
+		"name": "Singapore"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sx.svg",
+		"name": "Sint Maarten"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sb.svg",
+		"name": "Solomon Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gs.svg",
+		"name": "South Georgia and the South Sandwich Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/kr.svg",
+		"name": "South Korea"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ss.svg",
+		"name": "South Sudan"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/lk.svg",
+		"name": "Sri Lanka"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ps.svg",
+		"name": "State of Palestine"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sr.svg",
+		"name": "Suriname"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sj.svg",
+		"name": "Svalbard and Jan Mayen"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sy.svg",
+		"name": "Syria"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tw.svg",
+		"name": "Taiwan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tj.svg",
+		"name": "Tajikistan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tz.svg",
+		"name": "Tanzania"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/th.svg",
+		"name": "Thailand"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tl.svg",
+		"name": "Timor-Leste"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tk.svg",
+		"name": "Tokelau"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/to.svg",
+		"name": "Tonga"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tt.svg",
+		"name": "Trinidad and Tobago"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tm.svg",
+		"name": "Turkmenistan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tc.svg",
+		"name": "Turks and Caicos Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/tv.svg",
+		"name": "Tuvalu"
+	},
+
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ae.svg",
+		"name": "United Arab Emirates"
+	},
+
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/um.svg",
+		"name": "United States Minor Outlying Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/us.svg",
+		"name": "United States of America"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/uy.svg",
+		"name": "Uruguay"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/uz.svg",
+		"name": "Uzbekistan"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/vu.svg",
+		"name": "Vanuatu"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ve.svg",
+		"name": "Venezuela"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/vn.svg",
+		"name": "Vietnam"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/vg.svg",
+		"name": "Virgin Islands (British)"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/vi.svg",
+		"name": "Virgin Islands (U.S.)"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/wf.svg",
+		"name": "Wallis and Futuna"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/eh.svg",
+		"name": "Western Sahara"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ye.svg",
+		"name": "Yemen"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sh-ac.svg",
+		"name": "Ascension Island"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/es-pv.svg",
+		"name": "Basque Country"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ic.svg",
+		"name": "Canary Islands"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/es-ct.svg",
+		"name": "Catalonia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cefta.svg",
+		"name": "Central European Free Trade Agreement"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/cp.svg",
+		"name": "Clipperton Island"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/dg.svg",
+		"name": "Diego Garcia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/eac.svg",
+		"name": "East African Community"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gb-eng.svg",
+		"name": "England"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/eu.svg",
+		"name": "Europe"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/es-ga.svg",
+		"name": "Galicia"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/xk.svg",
+		"name": "Kosovo"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/arab.svg",
+		"name": "League of Arab States"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gb-nir.svg",
+		"name": "Northern Ireland"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/pc.svg",
+		"name": "Pacific Community"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sh-hl.svg",
+		"name": "Saint Helena"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gb-sct.svg",
+		"name": "Scotland"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sh-ta.svg",
+		"name": "Tristan da Cunha"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/un.svg",
+		"name": "United Nations"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/xx.svg",
+		"name": "Unknown"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/gb-wls.svg",
+		"name": "Wales"
+	}
+]

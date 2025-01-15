@@ -4,7 +4,7 @@
 <html>
   <head> </head>
 
-  <body style="height: 100vh; width: 100vw; overflow: hidden;">
+  <body style="height: 100vh; width: 100vw; overflow: hidden;" id="document_body">
     <link rel="stylesheet" type="text/css" href="leStyles.css" />
 
 
@@ -14,13 +14,32 @@
         <div style="border: 1px solid black">
           Included Flags: 
 
-            <div>
-              <form action="" id="form_setting_checkboxes">
+              <form action="" id="form_setting_includedflags">
                 <input type="checkbox" value="1" id="setting_checkbox_all"> All
                 <input type="checkbox" value="1" id="setting_checkbox_africa" > Africa
-                <input type="checkbox" value="1" id="setting_checkbox_europe" disabled="true" title="TODO"> Europe
+                <input type="checkbox" value="1" id="setting_checkbox_europe"> Europe
               </form>
-            </div>
+        </div>
+
+        <!-- TODO -->
+        <div style="border: 1px solid black">
+          Gamemode: 
+              <form action="" id="form_setting_gamemode">
+                <input type="radio" value="1" id="setting_radio_all" name="gamemode"> Endless
+                <input type="radio" value="1" id="setting_radio_africa" name="gamemode" > Time trial
+                <input type="radio" value="1" id="setting_radio_europe" name="gamemode"> Learn 
+              </form>
+        </div>
+
+        <!-- TODO -->
+        <div style="border: 1px solid black">
+          Settings: 
+              <form action="" id="form_setting_settings">
+                <input type="color" value="#FFFFFF" id="setting_colorpicker_backgroundColor"> Background color
+                <input type="color" value="#000000" id="setting_colorpicker_color"> Text color
+                <!-- <input type="radio" value="1" id="setting_radio_africa" > Time trial
+                <input type="radio" value="1" id="setting_radio_europe"> Learn  -->
+              </form>
         </div>
 
       </div>
@@ -31,19 +50,21 @@
           </div>
         </div>
         <div style="display: none;" id="gamearea_game">
-                      <div >
-                        <div style="display: inline-block;">Total Complete: </div>
-                        <div style="display: inline-block;" id="quiz_total_complete"></div>
+                      <div style="display: flex;" >
+                        <div>Total Complete:&ensp;</div>
+                        <div id="quiz_total_complete"></div>
+                        <span>&ensp;/&ensp;</span>
+                        <div id="quiz_total"></div>
                       </div>
 
-                      <div>
-                        <div style="display: inline-block;">Total Correct: </div>
-                        <div style="display: inline-block;" id="quiz_total_correct"></div>
+                      <div style="display: flex;">
+                        <div>Total Correct:&ensp;</div>
+                        <div id="quiz_total_correct"></div>
                       </div>
 
-                      <div>
-                        <div style="display: inline-block;">Total Incorrect: </div>
-                        <div style="display: inline-block;" id="quiz_total_incorrect"></div>
+                      <div style="display: flex;">
+                        <div>Total Incorrect:&ensp;</div>
+                        <div id="quiz_total_incorrect"></div>
                       </div>
 
             <div class="flagWrapper">
@@ -86,8 +107,13 @@
     <script type="module">
       const CONST_HEADER_ALL_FLAGS = "All-Flags";
       const CONST_HEADER_AFRICAN_FLAGS = "Africa-Flags";
+      const CONST_HEADER_EUROPE_FLAGS = "Europe-Flags";
+
+      const document_body = document.getElementById("document_body");
 
       const displayFlag = document.getElementById("flag");
+
+      const quiz_total = document.getElementById("quiz_total");
 
       const global_quiz_total_complete = document.getElementById("quiz_total_complete");
       global_quiz_total_complete.textContent = 0;
@@ -99,6 +125,7 @@
       global_quiz_total_incorrect.textContent = 0;
 
       const quiz_all_buttons = document.getElementById("quiz_all_buttons");
+      const quiz_all_buttons_array = Array.from(quiz_all_buttons.children);
 
       const quiz_option1 = document.getElementById("option_1");
       const quiz_option2 = document.getElementById("option_2");
@@ -106,11 +133,14 @@
       const quiz_option4 = document.getElementById("option_4");
 
     
-      const form_setting_checkboxes = document.getElementById("form_setting_checkboxes");
+      const form_setting_includedflags = document.getElementById("form_setting_includedflags");
 
       const setting_checkbox_all = document.getElementById("setting_checkbox_all");
       const setting_checkbox_africa = document.getElementById("setting_checkbox_africa");
       const setting_checkbox_europe = document.getElementById("setting_checkbox_europe");
+
+      const setting_colorpicker_backgroundColor = document.getElementById("setting_colorpicker_backgroundColor");
+      const setting_colorpicker_color = document.getElementById("setting_colorpicker_color");
 
       const gamearea_start = document.getElementById("gamearea_start");
       const gamearea_game = document.getElementById("gamearea_game");
@@ -132,12 +162,10 @@
       toggleDisableForStartButton();
 
       displayFlag.onload = function () {
-        quiz_option1.disabled = false;
-        quiz_option2.disabled = false;
-        quiz_option3.disabled = false;
-        quiz_option4.disabled = false;
+        SetAllButtonDisableState(false); 
       };
 
+      // could do the following in a loop as well... for the quiz buttons i mean
       quiz_option1.addEventListener("click", function (option1) {
         ValidateScoreAndSetupNextGame(option1);
       });
@@ -155,7 +183,22 @@
       });
 
       setting_checkbox_all.addEventListener("click", async function() {
-        // DO this when adding europe 
+        toggleDisableForStartButton();
+        let allCheckboxes = Array.from(form_setting_includedflags.children);
+
+        if (setting_checkbox_all.checked) {
+          allCheckboxes.forEach(
+            (checkbox) => {
+              checkbox.checked = true; 
+            }
+          );
+        } else {
+          allCheckboxes.forEach(
+            (checkbox) => {
+              checkbox.checked = false; 
+            }
+          );
+        }
       });
 
       setting_checkbox_africa.addEventListener("change", async function() {
@@ -168,13 +211,22 @@
             global_allFlags.push(flags);
             global_allFlags = global_allFlags.flat();
           } else {
-            flags.forEach((el) => {
+            flags.forEach((el) => { // remove african flags if unchecked 
               let indexOfElement = global_allFlags.indexOf(el);
               const deleteCount = 1;
               global_allFlags.splice(indexOfElement, deleteCount); 
             });
           }
       })
+
+      setting_colorpicker_backgroundColor.addEventListener('input', function(event) {
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color#tracking_color_changes
+        document_body.style.backgroundColor = event.target.value;
+      });
+
+      setting_colorpicker_color.addEventListener('input', function(event) {
+        document_body.style.color = event.target.value;
+      });
 
       gamearea_startButton.addEventListener("click", async function() {
         // check options for all flags to be included 
@@ -189,7 +241,6 @@
             global_allFlags = await RetrieveAllRelevantFlags();
 
             global_allFlags = global_allFlags.filter((flag) => flag.name != "");
-            global_allFlags = global_allFlags.filter((flag) => flag.name.length <= 5);
           }
 
           global_totalFlags = global_allFlags.length - 1; // indexed
@@ -210,26 +261,32 @@
 
       function ValidateScoreAndSetupNextGame(quiz_button) {
         global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
-
+        let timeout = Number(0);
 
         if (isChosenOptionCorrect(quiz_button.srcElement)) {
           global_quiz_total_correct.textContent = Number(global_quiz_total_correct.textContent) + 1;
         } else {
           global_quiz_total_incorrect.textContent = Number(global_quiz_total_incorrect.textContent) + 1;
+          timeout = 2000;
+          quiz_button.srcElement.style = 'background-color: red; color: black; font-weight: bold';
+          HighlightCorrectButton('background-color: green; font-weight: bold; color: black');
+          SetAllButtonDisableState(true);
         }
 
-        if ((global_gamemode_quiz_alreadygottenflags.length) === global_allFlags.length)
+        if (global_gamemode_quiz_alreadygottenflags.length === global_allFlags.length)
         {
           // player wins at this point. 
           global_gamemode_quiz_alreadygottenflags = [];
         } 
           
-        SetUpForNextGame();
+        setTimeout(() => {
+          SetUpForNextGame();
+        }, timeout);
       }
 
       function toggleDisableForStartButton() {
         let isSomethingChecked = false; 
-        form_setting_checkboxes.childNodes.forEach(
+        form_setting_includedflags.childNodes.forEach(
           (checkboxChildren) => {
             if (checkboxChildren.checked) isSomethingChecked = true; 
           }
@@ -239,8 +296,6 @@
       }
 
       async function RetrieveAllRelevantFlags() {
-        // JSON.parse(await RetrieveDataFromHeader(CONST_HEADER_AFRICAN_FLAGS))
-
         // attributes for checkbox: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
         let flags = [];
 
@@ -248,9 +303,16 @@
         {
           flags.push(JSON.parse(await RetrieveDataFromHeader(CONST_HEADER_AFRICAN_FLAGS)))
         }
+
+        if (setting_checkbox_europe.checked || setting_checkbox_all.checked)
+        {
+          flags.push(JSON.parse(await RetrieveDataFromHeader(CONST_HEADER_EUROPE_FLAGS)));
+        }
         
 
         flags = flags.flat();
+
+        quiz_total.textContent = flags.length;
 
         return flags;
 
@@ -259,14 +321,13 @@
       }
 
       async function SetUpForNextGame() {
-        global_quiz_current_options = [];
         displayFlag.alt = "";
 
+        SetAllButtonDisableState(true); 
 
-        quiz_option1.disabled = true;
-        quiz_option2.disabled = true;
-        quiz_option3.disabled = true;
-        quiz_option4.disabled = true;
+        quiz_all_buttons_array.forEach((btn, index, arr) => {
+          btn.style = null; 
+        });
 
         global_currentRandomFlag = getFlagThatHasntBeenUsed();
 
@@ -287,7 +348,8 @@
           case 4:
             quiz_option4.textContent = global_currentRandomFlag.name;
             break;
-        }
+          }
+
 
         if (!(await IsImageWorking(global_currentRandomFlag.img))) {
           console.log("Image not working");
@@ -331,7 +393,7 @@
 
         relevantButtons.forEach(
           (btn) => {
-            btn.textContent = GetFlagNotYetUsed(currentOptions);
+            btn.textContent = GetFlagNameNotYetUsed(currentOptions);
             currentOptions.push(btn.textContent);
           }
         );
@@ -346,7 +408,7 @@
         return allFlags[GetRandomNumberInRange(0, global_totalFlags)];
       }
 
-      function GetFlagNotYetUsed(currentOptions) {
+      function GetFlagNameNotYetUsed(currentOptions) {
         let foundFlag = null;
 
         while (foundFlag == null) {
@@ -382,8 +444,7 @@
         let promise = new Promise(function (resolve, reject) {
           // not sure if im writing a good promise
           // only resolves, never rejects
-          let timer,
-            image = new Image();
+          let timer, image = new Image();
 
           image.onerror = image.onabort = function () {
             // TODO: google this ^ at some point
@@ -415,6 +476,23 @@
         const headers = await serverFetchResponse.headers;
 
         return headers.get(header);
+      }
+
+      function HighlightCorrectButton(style) {
+        quiz_all_buttons_array.forEach(
+          (el, index, arr) => {
+            if (el.textContent === global_currentRandomFlag.name) {
+              el.style = style;
+            }
+        }) 
+      }
+
+      function SetAllButtonDisableState(state) {
+        quiz_all_buttons_array.forEach(
+          (element, index, arr) => {
+            element.disabled = state; 
+          }
+        );
       }
 
       // might not be used ever, but explains some concepts.
