@@ -50,11 +50,17 @@
           </div>
         </div>
         <div style="display: none;" id="gamearea_game">
-                      <div style="display: flex;" >
-                        <div>Total Complete:&ensp;</div>
-                        <div id="quiz_total_complete"></div>
-                        <span>&ensp;/&ensp;</span>
-                        <div id="quiz_total"></div>
+                      <div style="display: flex; justify-content: space-between;">
+                        <div style="display: flex;" >
+                          <div>Total Complete:&ensp;</div>
+                          <div id="quiz_total_complete"></div>
+                          <span>&ensp;/&ensp;</span>
+                          <div id="quiz_total"></div>
+                        </div>
+
+                        <div>
+                          <button id="gamearea_btn_quit" style="margin-right: 10px;">Quit Game</button>
+                        </div>
                       </div>
 
                       <div style="display: flex;">
@@ -108,6 +114,7 @@
       const CONST_HEADER_ALL_FLAGS = "All-Flags";
       const CONST_HEADER_AFRICAN_FLAGS = "Africa-Flags";
       const CONST_HEADER_EUROPE_FLAGS = "Europe-Flags";
+      const CONST_ALL_QUIZ_ENTRIES = "allQuizEntries";
 
       const document_body = document.getElementById("document_body");
 
@@ -132,6 +139,8 @@
       const quiz_option3 = document.getElementById("option_3");
       const quiz_option4 = document.getElementById("option_4");
 
+      const gamearea_btn_quit = document.getElementById("gamearea_btn_quit");
+
     
       const form_setting_includedflags = document.getElementById("form_setting_includedflags");
 
@@ -146,7 +155,7 @@
       const gamearea_game = document.getElementById("gamearea_game");
 
 
-      const gamearea_startButton = document.getElementById("btn_Start");
+      const gamearea_btn_start = document.getElementById("btn_Start");
 
       let global_allFlags = [];
       let global_totalFlags = -1;
@@ -228,10 +237,7 @@
         document_body.style.color = event.target.value;
       });
 
-      gamearea_startButton.addEventListener("click", async function() {
-        // check options for all flags to be included 
-        // hide this button
-
+      gamearea_btn_start.addEventListener("click", async function() {
           gamearea_start.classList = [];
           gamearea_start.classList.add("displaynone");
           gamearea_game.classList.remove("displaynone");
@@ -250,6 +256,24 @@
           SetUpForNextGame();
       });
 
+      gamearea_btn_quit.addEventListener("click", function() {
+        global_allFlags = [];
+        global_totalFlags = 0;
+        global_currentRandomFlag = null;
+        global_gamemode_quiz_alreadygottenflags = [];
+
+        global_quiz_total_complete.textContent = 0;
+        global_quiz_total_correct.textContent = 0;
+        global_quiz_total_incorrect.textContent = 0;
+
+        gamearea_game.classList.add("displaynone");
+        gamearea_game.style = null;
+
+        gamearea_start.classList.remove("displaynone");
+        gamearea_start.classList.add("gameareastart"); 
+
+      });
+
       
 
       // TODO:
@@ -263,7 +287,9 @@
         global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
         let timeout = Number(0);
 
-        if (isChosenOptionCorrect(quiz_button.srcElement)) {
+        const isChosenOptionCorrect = quiz_button.srcElement.textContent === global_currentRandomFlag.name;
+
+        if (isChosenOptionCorrect) {
           global_quiz_total_correct.textContent = Number(global_quiz_total_correct.textContent) + 1;
         } else {
           global_quiz_total_incorrect.textContent = Number(global_quiz_total_incorrect.textContent) + 1;
@@ -278,6 +304,9 @@
           // player wins at this point. 
           global_gamemode_quiz_alreadygottenflags = [];
         } 
+
+        // JS behaves weird if you pass down undefined, google later...
+        AddQuizEntryToLocalStorage(quiz_button.srcElement.textContent, isChosenOptionCorrect);
           
         setTimeout(() => {
           SetUpForNextGame();
@@ -287,12 +316,12 @@
       function toggleDisableForStartButton() {
         let isSomethingChecked = false; 
         form_setting_includedflags.childNodes.forEach(
-          (checkboxChildren) => {
-            if (checkboxChildren.checked) isSomethingChecked = true; 
+          (checkboxChild) => {
+            if (checkboxChild.checked) isSomethingChecked = true; 
           }
         );
 
-        gamearea_startButton.disabled = isSomethingChecked ? false : true;  
+        gamearea_btn_start.disabled = isSomethingChecked ? false : true;  
       }
 
       async function RetrieveAllRelevantFlags() {
@@ -434,12 +463,6 @@
         return Math.floor(randFloat * range + min);
       }
 
-      function isChosenOptionCorrect(button) {
-        const buttonTextValue = button.textContent;
-
-        return buttonTextValue == global_currentRandomFlag.name;
-      }
-
       async function IsImageWorking(imgUrl) {
         let promise = new Promise(function (resolve, reject) {
           // not sure if im writing a good promise
@@ -479,12 +502,19 @@
       }
 
       function HighlightCorrectButton(style) {
+        let correctButtonFound = false; 
         quiz_all_buttons_array.forEach(
           (el, index, arr) => {
             if (el.textContent === global_currentRandomFlag.name) {
               el.style = style;
+              correctButtonFound = true;
             }
         }) 
+
+        if (!correctButtonFound) {
+          console.log("Correct button not highlighted","This needs to be investigated asap");
+          // console.log(/*TODO: DEBUG INFO*/)
+        }
       }
 
       function SetAllButtonDisableState(state) {
@@ -493,6 +523,48 @@
             element.disabled = state; 
           }
         );
+      }
+
+      function AddQuizEntryToLocalStorage(buttonText, correctness, timetaken = null) {
+        let allQuizEntriesThusFarLS = localStorage.getItem(CONST_ALL_QUIZ_ENTRIES);
+        // 
+        // 
+        let quizEntries =  {
+              "answer" : global_currentRandomFlag.name,
+              "answer_img" : global_currentRandomFlag.img,
+              "chosenOption" : buttonText,
+              "allOptions" : GetArrayOfOptionText(),
+              "correct" : correctness,
+              "timetaken": timetaken,
+              "gametype": "quiz"
+            };
+
+        if (allQuizEntriesThusFarLS === null) {
+          // set some stuff
+          localStorage.setItem(CONST_ALL_QUIZ_ENTRIES, JSON.stringify(quizEntries));
+
+        } else {
+          let allQuizEntriesThusFar = [JSON.parse(localStorage.getItem(CONST_ALL_QUIZ_ENTRIES))];
+
+          allQuizEntriesThusFar.push(quizEntries);
+
+          allQuizEntriesThusFar = allQuizEntriesThusFar.flat();
+
+          allQuizEntriesThusFar = JSON.stringify(allQuizEntriesThusFar);
+
+          localStorage.setItem(CONST_ALL_QUIZ_ENTRIES, allQuizEntriesThusFar);
+        }
+      }
+
+      function GetArrayOfOptionText() {
+        let optionNames = [];
+        quiz_all_buttons_array.forEach(
+          (element, index, arr) => {
+            optionNames.push(element.textContent);
+          }
+        );
+
+        return optionNames;
       }
 
       // might not be used ever, but explains some concepts.
