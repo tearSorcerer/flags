@@ -115,7 +115,9 @@
       const CONST_HEADER_ALL_FLAGS = "All-Flags";
       const CONST_HEADER_AFRICAN_FLAGS = "Africa-Flags";
       const CONST_HEADER_EUROPE_FLAGS = "Europe-Flags";
+
       const CONST_ALL_QUIZ_ENTRIES = "allQuizEntries";
+      const CONST_ALL_SETTINGS = "allSettings"
 
       const document_body = document.getElementById("document_body");
       const menu = document.getElementById("menu");
@@ -245,9 +247,20 @@
       });
 
       gamearea_btn_start.addEventListener("click", async function() {
-          recursiveCallbackAllChildren(Array.from(menu.children), function(htmlElement) {
+
+        // disable settings: 
+        // kinda scuffed passin the menu as an array, but is easiest for me to read :) 
+        // and also, makes the function easier to write 
+          recursiveCallbackAllChildren([menu], function disableChildren(htmlElement) {
+            console.log(htmlElement);
             htmlElement.disabled = true;
-            htmlElement.style = 'color: grey';
+            if (!["div"].includes(htmlElement.localName)) htmlElement.style = 'color: grey';
+          });
+
+        // save settings to localstorage:
+          localStorage.removeItem(CONST_ALL_SETTINGS);
+          recursiveCallbackAllChildren([menu], function addSettingToLocalStorage(htmlElement) {
+            AddSettingsToLocalStorage(htmlElement, ["checkbox", "radio", "color"]);
           });
 
           gamearea_start.classList = [];
@@ -271,9 +284,9 @@
       });
 
       gamearea_btn_quit.addEventListener("click", function() {
-        recursiveCallbackAllChildren(Array.from(menu.children), function(htmlElement) {
+        recursiveCallbackAllChildren([menu], function(htmlElement) {
             htmlElement.disabled = false;
-            htmlElement.style = 'color: black';
+            if (!["div"].includes(htmlElement.localName)) htmlElement.style = 'color: black';
           });
 
         global_allFlags = [];
@@ -295,7 +308,12 @@
 
       // ============== SETUP THE GAME ===============
       toggleDisableForStartButton();
+
+      retrieveSettingsFromLocalStorage();
+
       radioButtonSetAtleast1Option();
+
+      invokeColorSettings();
 
       // TODO:
 
@@ -546,10 +564,24 @@
         );
       }
 
-      function AddQuizEntryToLocalStorage(buttonText, correctness, timetaken = null) {
-        let allQuizEntriesThusFarLS = localStorage.getItem(CONST_ALL_QUIZ_ENTRIES);
+      function AddSettingsToLocalStorage(htmlItem, typesToInclude) {
+        let settingItem = null;
 
-        let quizEntries =  {
+        if (typesToInclude.includes(htmlItem.type)) {
+          
+          settingItem = {
+            "id": htmlItem.id,
+            "type": htmlItem.type,
+            "value": htmlItem.value,
+            "checked" : htmlItem.checked
+          };
+      }
+
+        if (settingItem) SetLocalStorage(CONST_ALL_SETTINGS, settingItem);
+      }
+
+      function AddQuizEntryToLocalStorage(buttonText, correctness, timetaken = null) {
+        let quizEntry =  {
               "answer" : global_currentRandomFlag.name,
               "answer_img" : global_currentRandomFlag.img,
               "chosenOption" : buttonText,
@@ -559,20 +591,26 @@
               "gametype": "quiz"
             };
 
-        if (allQuizEntriesThusFarLS === null) {
-          // set some stuff
-          localStorage.setItem(CONST_ALL_QUIZ_ENTRIES, JSON.stringify(quizEntries));
+        SetLocalStorage(CONST_ALL_QUIZ_ENTRIES, quizEntry);
+      }
+
+      function SetLocalStorage(key, currentEntry) {
+        let localStorageItem = localStorage.getItem(key);
+
+        if (localStorageItem === null) {
+
+          localStorage.setItem(key, JSON.stringify(currentEntry));
 
         } else {
-          let allQuizEntriesThusFar = [JSON.parse(localStorage.getItem(CONST_ALL_QUIZ_ENTRIES))];
+          let localStorageItems = [JSON.parse(localStorage.getItem(key))];
 
-          allQuizEntriesThusFar.push(quizEntries);
+          localStorageItems.push(currentEntry);
 
-          allQuizEntriesThusFar = allQuizEntriesThusFar.flat();
+          localStorageItems = localStorageItems.flat();
 
-          allQuizEntriesThusFar = JSON.stringify(allQuizEntriesThusFar);
+          localStorageItems = JSON.stringify(localStorageItems);
 
-          localStorage.setItem(CONST_ALL_QUIZ_ENTRIES, allQuizEntriesThusFar);
+          localStorage.setItem(key, localStorageItems);
         }
       }
 
@@ -585,6 +623,12 @@
         );
 
         return optionNames;
+      }
+
+      function invokeColorSettings() {
+        // https://stackoverflow.com/a/50587874
+        setting_colorpicker_backgroundColor.dispatchEvent(new Event("input"));
+        setting_colorpicker_color.dispatchEvent(new Event("input"));
       }
 
       function radioButtonSetAtleast1Option() {
@@ -607,11 +651,26 @@
         }
       }
 
+      function retrieveSettingsFromLocalStorage() {
+        let allSettings = JSON.parse(localStorage.getItem(CONST_ALL_SETTINGS));
+
+        recursiveCallbackAllChildren([menu], function(htmlElement) {
+
+          let relatedSetting = allSettings.find((s) => s.id === htmlElement.id);
+
+          if (relatedSetting) {
+            htmlElement.value = relatedSetting.value;
+            htmlElement.checked = relatedSetting.checked;
+          }
+        }); 
+      }
+
       function recursiveCallbackAllChildren(currentChild, callBack = () => {}) {
         // legend:
         // div1 = current html element
         // alldivs = array of elements
-        // keeping the name as it makes it easier for me to reason about currently. 
+        // keeping the name as it makes it easier for me to reason about currently.
+
         if (currentChild.length >= 1) {
           currentChild.forEach(
             (div1, index, alldivs) => {
