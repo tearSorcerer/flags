@@ -9,7 +9,7 @@
 
 
     <div style="display: flex; height: 1000px">
-      <div style="border: 1px solid black; width: 20%; height: 100%;">Menu
+      <div style="border: 1px solid black; width: 20%; height: 100%;" id="menu">Menu
 
         <div style="border: 1px solid black">
           Included Flags: 
@@ -25,9 +25,9 @@
         <div style="border: 1px solid black">
           Gamemode: 
               <form action="" id="form_setting_gamemode">
-                <input type="radio" value="1" id="setting_radio_all" name="gamemode"> Endless
-                <input type="radio" value="1" id="setting_radio_africa" name="gamemode" > Time trial
-                <input type="radio" value="1" id="setting_radio_europe" name="gamemode"> Learn 
+                <input type="radio" value="1" id="setting_radio_endless" name="gamemode"> Endless
+                <input type="radio" value="1" id="setting_radio_timetrial" name="gamemode" > Time trial
+                <input type="radio" value="1" id="setting_radio_learn" name="gamemode"> Learn 
               </form>
         </div>
 
@@ -59,7 +59,7 @@
                         </div>
 
                         <div>
-                          <button id="gamearea_btn_quit" style="margin-right: 10px;">Quit Game</button>
+                          <button id="gamearea_btn_quit" style="margin-right: 10px;">Quit</button>
                         </div>
                       </div>
 
@@ -111,12 +111,14 @@
 
 
     <script type="module">
+      // ============== ALL GLOBAL VARIABLES ===============
       const CONST_HEADER_ALL_FLAGS = "All-Flags";
       const CONST_HEADER_AFRICAN_FLAGS = "Africa-Flags";
       const CONST_HEADER_EUROPE_FLAGS = "Europe-Flags";
       const CONST_ALL_QUIZ_ENTRIES = "allQuizEntries";
 
       const document_body = document.getElementById("document_body");
+      const menu = document.getElementById("menu");
 
       const displayFlag = document.getElementById("flag");
 
@@ -141,7 +143,8 @@
 
       const gamearea_btn_quit = document.getElementById("gamearea_btn_quit");
 
-    
+      const form_setting_gamemode = document.getElementById("form_setting_gamemode");
+
       const form_setting_includedflags = document.getElementById("form_setting_includedflags");
 
       const setting_checkbox_all = document.getElementById("setting_checkbox_all");
@@ -168,7 +171,11 @@
 
       // But alas I will for fun.
 
-      toggleDisableForStartButton();
+
+
+
+
+      // ============== ALL CALLBACKS ===============
 
       displayFlag.onload = function () {
         SetAllButtonDisableState(false); 
@@ -238,6 +245,11 @@
       });
 
       gamearea_btn_start.addEventListener("click", async function() {
+          recursiveCallbackAllChildren(Array.from(menu.children), function(htmlElement) {
+            htmlElement.disabled = true;
+            htmlElement.style = 'color: grey';
+          });
+
           gamearea_start.classList = [];
           gamearea_start.classList.add("displaynone");
           gamearea_game.classList.remove("displaynone");
@@ -247,6 +259,8 @@
             global_allFlags = await RetrieveAllRelevantFlags();
 
             global_allFlags = global_allFlags.filter((flag) => flag.name != "");
+
+            quiz_total.textContent = global_allFlags.length;
           }
 
           global_totalFlags = global_allFlags.length - 1; // indexed
@@ -257,6 +271,11 @@
       });
 
       gamearea_btn_quit.addEventListener("click", function() {
+        recursiveCallbackAllChildren(Array.from(menu.children), function(htmlElement) {
+            htmlElement.disabled = false;
+            htmlElement.style = 'color: black';
+          });
+
         global_allFlags = [];
         global_totalFlags = 0;
         global_currentRandomFlag = null;
@@ -274,15 +293,17 @@
 
       });
 
-      
+      // ============== SETUP THE GAME ===============
+      toggleDisableForStartButton();
+      radioButtonSetAtleast1Option();
 
       // TODO:
-      // + punish the player for incorrect
-      // start thinking about logging stats 
+
 
       // + get checkbox options from localstorage...too early for this 
 
 
+      // ============== ALL FUNCTIONS ===============
       function ValidateScoreAndSetupNextGame(quiz_button) {
         global_quiz_total_complete.textContent = Number(global_quiz_total_complete.textContent) + 1;
         let timeout = Number(0);
@@ -341,7 +362,7 @@
 
         flags = flags.flat();
 
-        quiz_total.textContent = flags.length;
+        
 
         return flags;
 
@@ -527,8 +548,7 @@
 
       function AddQuizEntryToLocalStorage(buttonText, correctness, timetaken = null) {
         let allQuizEntriesThusFarLS = localStorage.getItem(CONST_ALL_QUIZ_ENTRIES);
-        // 
-        // 
+
         let quizEntries =  {
               "answer" : global_currentRandomFlag.name,
               "answer_img" : global_currentRandomFlag.img,
@@ -565,6 +585,43 @@
         );
 
         return optionNames;
+      }
+
+      function radioButtonSetAtleast1Option() {
+        let radioButtons = Array.from(form_setting_gamemode.children);
+
+        let oneChecked = false;
+        radioButtons.forEach(
+          (radioBtn, index, allBtns) => {
+            if (radioBtn.checked) oneChecked = true;
+          }
+        );
+
+        if (!oneChecked) {
+          radioButtons.forEach(
+            (radioBtn, index, allBtns) => {
+              console.log('radioBtn', radioBtn)
+              if (radioBtn.id === "setting_radio_endless") radioBtn.checked = true; 
+            }
+          )
+        }
+      }
+
+      function recursiveCallbackAllChildren(currentChild, callBack = () => {}) {
+        // legend:
+        // div1 = current html element
+        // alldivs = array of elements
+        // keeping the name as it makes it easier for me to reason about currently. 
+        if (currentChild.length >= 1) {
+          currentChild.forEach(
+            (div1, index, alldivs) => {
+              let childChildren = Array.from(div1.children);
+              if (childChildren.length >= 1) recursiveCallbackAllChildren(childChildren, callBack);
+
+              callBack(div1);
+            }
+          )
+        }
       }
 
       // might not be used ever, but explains some concepts.

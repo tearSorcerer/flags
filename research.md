@@ -34,4 +34,5 @@ Further reading on modules: https://developer.mozilla.org/en-US/docs/Web/JavaScr
 I referenced some code from the following JS fiddle:
 + https://jsfiddle.net/jfriend00/vhtzghkd/
 
-## Something else
+## Must read:
++ https://stackoverflow.com/a/40106523
