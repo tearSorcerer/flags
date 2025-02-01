@@ -3,6 +3,12 @@
 + Africa:
     + https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_Africa
 
++ North America:
+    + https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_North_America
+
++ South America: 
+    + https://en.wikipedia.org/wiki/List_of_sovereign_states_and_dependent_territories_in_South_America
+    
 
 
 ## Other Cool sites:

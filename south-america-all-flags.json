@@ -1,0 +1,50 @@
+[
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ar.svg",
+		"name": "Argentina"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bo.svg",
+		"name": "Bolivia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/br.svg",
+		"name": "Brazil"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/cl.svg",
+		"name": "Chile"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/co.svg",
+		"name": "Colombia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ec.svg",
+		"name": "Ecuador"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/gy.svg",
+		"name": "Guyana"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/py.svg",
+		"name": "Paraguay"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/pe.svg",
+		"name": "Peru"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/sr.svg",
+		"name": "Suriname"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/uy.svg",
+		"name": "Uruguay"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ve.svg",
+		"name": "Venezuela"
+	}
+]

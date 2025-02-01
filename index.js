@@ -5,9 +5,17 @@ var fs = require("fs");
 var masterListOfFlags = JSON.stringify(require('./master-list-all-flags-2.json'));
 var africaFlags = JSON.stringify(require('./africa-all-flags.json'));
 var europeFlags = JSON.stringify(require('./europe-all-flags.json'));
+var northAmericaFlags = JSON.stringify(require('./north-america-all-flags.json'));
+var southAmericaFlags = JSON.stringify(require('./south-america-all-flags.json'));
 var port = 3000;
 var serverUrl = "127.0.0.1";
 var counter = 0;
+
+const CONST_HEADER_ALL_FLAGS = "All-Flags";
+const CONST_HEADER_AFRICAN_FLAGS = "Africa-Flags";
+const CONST_HEADER_EUROPE_FLAGS = "Europe-Flags";
+const CONST_HEADER_NORTH_AMERICA_FLAGS = "North-America-Flags";
+const CONST_HEADER_SOUTH_AMERICA_FLAGS = "South-America-Flags";
 
 var server = http.createServer(function (req, res) {
   counter++;
@@ -16,9 +24,12 @@ var server = http.createServer(function (req, res) {
   if (req.url == "/") {
     fs.readFile("sample.html", function (err, text) {
       res.setHeader("Content-Type", "text/html");
-      res.setHeader("All-Flags", masterListOfFlags);
-      res.setHeader("Africa-Flags", africaFlags);
-      res.setHeader("Europe-Flags", europeFlags)
+      res.setHeader(CONST_HEADER_ALL_FLAGS, masterListOfFlags);
+      res.setHeader(CONST_HEADER_AFRICAN_FLAGS, africaFlags);
+      res.setHeader(CONST_HEADER_EUROPE_FLAGS, europeFlags);
+      res.setHeader(CONST_HEADER_NORTH_AMERICA_FLAGS, northAmericaFlags);
+      res.setHeader(CONST_HEADER_SOUTH_AMERICA_FLAGS, southAmericaFlags);
+      
       // refactor above to only have different headers, not one master
       // don't want dupes...unless it doesn't really matter. 
 
@@ -44,6 +55,13 @@ var server = http.createServer(function (req, res) {
         res.setHeader("Content-Type", "text/css");
         res.end(text);
     });
+
+    return;
+  }
+
+  if (req.url.includes("?")) {
+    res.setHeader("Content-Type", "text/html");
+    res.end("<h1> Why does localstorage clear do this? </h1>");
 
     return;
   }

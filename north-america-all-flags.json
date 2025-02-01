@@ -1,0 +1,94 @@
+[
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ag.svg",
+		"name": "Antigua and Barbuda"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bs.svg",
+		"name": "Bahamas"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bb.svg",
+		"name": "Barbados"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bz.svg",
+		"name": "Belize"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ca.svg",
+		"name": "Canada"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/cr.svg",
+		"name": "Costa Rica"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/cu.svg",
+		"name": "Cuba"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/dm.svg",
+		"name": "Dominica"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/do.svg",
+		"name": "Dominican Republic"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/sv.svg",
+		"name": "El Salvador"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/gd.svg",
+		"name": "Grenada"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/gt.svg",
+		"name": "Guatemala"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ht.svg",
+		"name": "Haiti"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/hn.svg",
+		"name": "Honduras"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/jm.svg",
+		"name": "Jamaica"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/mx.svg",
+		"name": "Mexico"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/ni.svg",
+		"name": "Nicaragua"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/pa.svg",
+		"name": "Panama"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/kn.svg",
+		"name": "Saint Kitts and Nevis"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/lc.svg",
+		"name": "Saint Lucia"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/vc.svg",
+		"name": "Saint Vincent and the Grenadines"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/tt.svg",
+		"name": "Trinidad and Tobago"
+	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/us.svg",
+		"name": "United States of America"
+	}
+]

@@ -13,35 +13,23 @@
 		"name": "American Samoa"
 	},
 
-	{
+    {
 		"img": "https://flagicons.lipis.dev/flags/4x3/ai.svg",
 		"name": "Anguilla"
+	},
+	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/aw.svg",
+		"name": "Aruba"
 	},
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/aq.svg",
 		"name": "Antarctica"
 	},
 	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ag.svg",
-		"name": "Antigua and Barbuda"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ar.svg",
-		"name": "Argentina"
-	},
-
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/aw.svg",
-		"name": "Aruba"
-	},
-	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/au.svg",
 		"name": "Australia"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/bs.svg",
-		"name": "Bahamas"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/bh.svg",
 		"name": "Bahrain"
@@ -50,41 +38,34 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/bd.svg",
 		"name": "Bangladesh"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/bb.svg",
-		"name": "Barbados"
-	},
 
-
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/bz.svg",
-		"name": "Belize"
-	},
-	{
+    {
 		"img": "https://flagicons.lipis.dev/flags/4x3/bm.svg",
 		"name": "Bermuda"
 	},
+    {
+		"img": "https://flagicons.lipis.dev/flags/4x3/bq.svg",
+		"name": "Bonaire, Sint Eustatius and Saba"
+	},
+    {
+        "img": "https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_the_British_Virgin_Islands.svg",
+        "name": "British Virgin Islands"
+    },
+
+
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/bt.svg",
 		"name": "Bhutan"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/bo.svg",
-		"name": "Bolivia"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/bq.svg",
-		"name": "Bonaire, Sint Eustatius and Saba"
-	},
+
+
 
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/bv.svg",
 		"name": "Bouvet Island"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/br.svg",
-		"name": "Brazil"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/io.svg",
 		"name": "British Indian Ocean Territory"
@@ -95,6 +76,10 @@
 	},
 
 	{
+		"img": "https://flagicons.lipis.dev/flags/4x3/ky.svg",
+		"name": "Cayman Islands"
+	},
+	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/kh.svg",
 		"name": "Cambodia"
 	},
@@ -102,18 +87,9 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/cm.svg",
 		"name": "Cameroon"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ca.svg",
-		"name": "Canada"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ky.svg",
-		"name": "Cayman Islands"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/cl.svg",
-		"name": "Chile"
-	},
+
+
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/cn.svg",
 		"name": "China"
@@ -126,23 +102,14 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/cc.svg",
 		"name": "Cocos (Keeling) Islands"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/co.svg",
-		"name": "Colombia"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/ck.svg",
 		"name": "Cook Islands"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/cr.svg",
-		"name": "Costa Rica"
-	},
 
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/cu.svg",
-		"name": "Cuba"
-	},
+
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/cw.svg",
 		"name": "Curaçao"
@@ -153,22 +120,10 @@
 		"name": "Czech Republic"
 	},
 
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/dm.svg",
-		"name": "Dominica"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/do.svg",
-		"name": "Dominican Republic"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ec.svg",
-		"name": "Ecuador"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/sv.svg",
-		"name": "El Salvador"
-	},
+
+
+
+
 
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/fk.svg",
@@ -210,10 +165,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/gl.svg",
 		"name": "Greenland"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/gd.svg",
-		"name": "Grenada"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/gp.svg",
 		"name": "Guadeloupe"
@@ -222,22 +174,12 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/gu.svg",
 		"name": "Guam"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/gt.svg",
-		"name": "Guatemala"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/gg.svg",
 		"name": "Guernsey"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/gy.svg",
-		"name": "Guyana"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ht.svg",
-		"name": "Haiti"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/hm.svg",
 		"name": "Heard Island and McDonald Islands"
@@ -246,10 +188,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/va.svg",
 		"name": "Holy See"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/hn.svg",
-		"name": "Honduras"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/hk.svg",
 		"name": "Hong Kong"
@@ -282,10 +221,7 @@
 		"name": "Israel"
 	},
 
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/jm.svg",
-		"name": "Jamaica"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/jp.svg",
 		"name": "Japan"
@@ -356,10 +292,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/yt.svg",
 		"name": "Mayotte"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/mx.svg",
-		"name": "Mexico"
-	},
+
 
 
 	{
@@ -392,10 +325,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/nz.svg",
 		"name": "New Zealand"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ni.svg",
-		"name": "Nicaragua"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/ne.svg",
 		"name": "Niger"
@@ -434,22 +364,13 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/pw.svg",
 		"name": "Palau"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/pa.svg",
-		"name": "Panama"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/pg.svg",
 		"name": "Papua New Guinea"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/py.svg",
-		"name": "Paraguay"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/pe.svg",
-		"name": "Peru"
-	},
+
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/ph.svg",
 		"name": "Philippines"
@@ -486,14 +407,8 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/sh.svg",
 		"name": "Saint Helena, Ascension and Tristan da Cunha"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/kn.svg",
-		"name": "Saint Kitts and Nevis"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/lc.svg",
-		"name": "Saint Lucia"
-	},
+
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/mf.svg",
 		"name": "Saint Martin"
@@ -502,10 +417,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/pm.svg",
 		"name": "Saint Pierre and Miquelon"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/vc.svg",
-		"name": "Saint Vincent and the Grenadines"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/ws.svg",
 		"name": "Samoa"
@@ -593,10 +505,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/to.svg",
 		"name": "Tonga"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/tt.svg",
-		"name": "Trinidad and Tobago"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/tm.svg",
 		"name": "Turkmenistan"
@@ -620,14 +529,8 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/um.svg",
 		"name": "United States Minor Outlying Islands"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/us.svg",
-		"name": "United States of America"
-	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/uy.svg",
-		"name": "Uruguay"
-	},
+
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/uz.svg",
 		"name": "Uzbekistan"
@@ -636,10 +539,7 @@
 		"img": "https://flagicons.lipis.dev/flags/4x3/vu.svg",
 		"name": "Vanuatu"
 	},
-	{
-		"img": "https://flagicons.lipis.dev/flags/4x3/ve.svg",
-		"name": "Venezuela"
-	},
+
 	{
 		"img": "https://flagicons.lipis.dev/flags/4x3/vn.svg",
 		"name": "Vietnam"
